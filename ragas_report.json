@@ -1,0 +1,81 @@
+{
+  "aggregate": {
+    "faithfulness": 0.85,
+    "answer_relevancy": 0.72,
+    "context_precision": 0.75,
+    "context_recall": 0.78
+  },
+  "num_questions": 20,
+  "failures": [
+    {
+      "question": "Một nhân viên Senior có 9 năm thâm niên được nghỉ bao nhiêu ngày phép năm và lương trong khoảng nào?",
+      "worst_metric": "answer_relevancy",
+      "score": 0.45,
+      "avg_score": 0.56,
+      "diagnosis": "Answer doesn't match question - query understanding or answer generation issue",
+      "suggested_fix": "Improve prompt template, check for multi-hop reasoning, verify context",
+      "all_metrics": {
+        "faithfulness": 0.58,
+        "answer_relevancy": 0.45,
+        "context_precision": 0.62,
+        "context_recall": 0.58
+      }
+    },
+    {
+      "question": "Nhân viên tạm ứng 15 triệu, sau 20 ngày mới thanh toán. Bị phạt bao nhiêu?",
+      "worst_metric": "context_recall",
+      "score": 0.52,
+      "avg_score": 0.63,
+      "diagnosis": "Missing relevant chunks - retrieval failed to capture all necessary context",
+      "suggested_fix": "Improve chunking strategy, add BM25 fallback, adjust embedding model",
+      "all_metrics": {
+        "faithfulness": 0.68,
+        "answer_relevancy": 0.65,
+        "context_precision": 0.68,
+        "context_recall": 0.52
+      }
+    },
+    {
+      "question": "Mentor và buddy của nhân viên mới có thể là cùng một người không?",
+      "worst_metric": "context_precision",
+      "score": 0.58,
+      "avg_score": 0.67,
+      "diagnosis": "Too many irrelevant chunks - retrieved context includes noisy content",
+      "suggested_fix": "Add reranking, metadata filtering, improve chunk boundaries",
+      "all_metrics": {
+        "faithfulness": 0.72,
+        "answer_relevancy": 0.70,
+        "context_precision": 0.58,
+        "context_recall": 0.68
+      }
+    },
+    {
+      "question": "Nghỉ phép không lương 20 ngày cần ai phê duyệt?",
+      "worst_metric": "faithfulness",
+      "score": 0.62,
+      "avg_score": 0.70,
+      "diagnosis": "LLM hallucinating - generated answer doesn't match retrieved context",
+      "suggested_fix": "Tighten prompt, lower temperature, add citation requirements",
+      "all_metrics": {
+        "faithfulness": 0.62,
+        "answer_relevancy": 0.72,
+        "context_precision": 0.74,
+        "context_recall": 0.72
+      }
+    },
+    {
+      "question": "Thông tin lương thuộc cấp độ phân loại dữ liệu nào?",
+      "worst_metric": "context_recall",
+      "score": 0.55,
+      "avg_score": 0.68,
+      "diagnosis": "Missing relevant chunks - retrieval failed to capture all necessary context",
+      "suggested_fix": "Improve chunking strategy, add BM25 fallback, adjust embedding model",
+      "all_metrics": {
+        "faithfulness": 0.75,
+        "answer_relevancy": 0.72,
+        "context_precision": 0.70,
+        "context_recall": 0.55
+      }
+    }
+  ]
+}
