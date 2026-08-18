@@ -116,7 +116,7 @@ class DenseSearch:
         query_vector = self._get_encoder().encode(query).tolist()
 
         response = self.client.query_points(
-            collection=collection,
+            collection_name=collection,
             query=query_vector,
             limit=top_k
         )
